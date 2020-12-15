@@ -14,5 +14,8 @@ class TattooConfiguration {
             .build()
 
     @Bean
-    fun tattooRestService(restTemplate: RestTemplate): TattooRestService = TattooRestService(restTemplate)
+    fun tattooRestService(
+            restTemplate: RestTemplate,
+            tattooServiceConfiguration: TattooServiceConfiguration
+    ): TattooRestService = TattooRestService(tattooServiceConfiguration, restTemplate)
 }

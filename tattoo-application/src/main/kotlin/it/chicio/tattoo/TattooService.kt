@@ -5,10 +5,13 @@ import org.springframework.web.client.RestClientResponseException
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponentsBuilder
 
-class TattooRestService(private val restTemplate: RestTemplate) {
+class TattooRestService(
+    private val tattooServiceConfiguration: TattooServiceConfiguration,
+    private val restTemplate: RestTemplate
+) {
     fun getForEntity(): ResponseEntity<Tattoo> = try {
         restTemplate.getForEntity(
-                UriComponentsBuilder.fromHttpUrl("http://localhost:8083/tattoo/123").build().toUri(),
+                UriComponentsBuilder.fromHttpUrl(tattooServiceConfiguration.url).path("/tattoo/123").build().toUri(),
                 Tattoo::class.java
         )
     } catch (e: RestClientResponseException) {
