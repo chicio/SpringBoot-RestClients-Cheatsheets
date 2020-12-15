@@ -1,0 +1,5 @@
+### Get tattoo
+GET http://localhost:8083/tattoo
+Content-Type: application/json
+
+<> 2020-08-05T114929.415.json
