@@ -1,5 +1,11 @@
 ### Get tattoo
-GET http://localhost:8083/tattoo
+GET http://localhost:8083/tattoo/123
+Content-Type: application/json
+
+<> 2020-08-05T114929.415.json
+
+### Command tattoo
+GET http://127.0.0.1:8080/tattoo/command/GetForEntity
 Content-Type: application/json
 
 <> 2020-08-05T114929.415.json

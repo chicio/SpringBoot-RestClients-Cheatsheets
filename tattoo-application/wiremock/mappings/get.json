@@ -1,20 +1,24 @@
 {
   "mappings": [
     {
-      "id": "qwert234-12345-2456fd",
       "request": {
         "method": "GET",
-        "url": "/tattoo"
+        "url": "/tattoo/123"
       },
       "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
         "status": 200,
         "jsonBody": {
+            "id": 123,
             "title": "A beautiful tattoo",
             "description": "My latest new school tattoo on my left leg",
             "dimensions": {
                 "height": 100,
-                "width": 50
-            }
+                "width": 40
+            },
+            "style": "NewSchool"
         }
       }
     }
