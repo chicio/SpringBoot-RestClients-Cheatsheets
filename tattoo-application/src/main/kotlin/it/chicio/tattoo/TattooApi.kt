@@ -1,4 +1,4 @@
-package it.chicio.tattoositeapi
+package it.chicio.tattoo
 
 import org.springframework.web.bind.annotation.RestController
 
