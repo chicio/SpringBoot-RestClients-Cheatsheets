@@ -1,3 +1,5 @@
+@file:Suppress("IMPLICIT_CAST_TO_ANY")
+
 package it.chicio.tattoo
 
 import org.springframework.http.ResponseEntity
@@ -9,12 +11,13 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("tattoo")
 class TattooApi(
-        val tattooRestService: TattooRestService
+    val tattooRestService: TattooRestService
 ) {
-
     @GetMapping("/command/{command}")
     fun command(@PathVariable command: Command): ResponseEntity<String> = ResponseEntity.ok(when (command) {
         Command.GetForEntity -> tattooRestService.getForEntity()
+        Command.GetForObject -> tattooRestService.getForObject()
         Command.PostForEntity -> tattooRestService.postForEntity()
+        Command.PostForObject -> tattooRestService.postForObject()
     }.toString())
 }

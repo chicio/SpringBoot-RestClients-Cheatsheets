@@ -2,10 +2,18 @@
 GET http://localhost:8083/tattoo/123
 Content-Type: application/json
 
-<> 2020-08-05T114929.415.json
-
-### Command tattoo
+### Command tattoo GetForEntity
 GET http://127.0.0.1:8080/tattoo/command/GetForEntity
 Content-Type: application/json
 
-<> 2020-08-05T114929.415.json
+### Command tattoo GetForObject
+GET http://127.0.0.1:8080/tattoo/command/GetForObject
+Content-Type: application/json
+
+### Command tattoo PostForEntity
+GET http://127.0.0.1:8080/tattoo/command/PostForEntity
+Content-Type: application/json
+
+### Command tattoo PostForObject
+GET http://127.0.0.1:8080/tattoo/command/PostForObject
+Content-Type: application/json
