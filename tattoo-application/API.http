@@ -17,3 +17,11 @@ Content-Type: application/json
 ### Command tattoo PostForObject
 GET http://127.0.0.1:8080/tattoo/command/PostForObject
 Content-Type: application/json
+
+### Command tattoo Put
+GET http://127.0.0.1:8080/tattoo/command/Put
+Content-Type: application/json
+
+### Command tattoo Exchange
+GET http://127.0.0.1:8080/tattoo/command/Exchange
+Content-Type: application/json

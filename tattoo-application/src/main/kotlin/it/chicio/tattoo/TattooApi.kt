@@ -19,5 +19,7 @@ class TattooApi(
         Command.GetForObject -> tattooRestService.getForObject()
         Command.PostForEntity -> tattooRestService.postForEntity()
         Command.PostForObject -> tattooRestService.postForObject()
+        Command.Put -> tattooRestService.put()
+        Command.Exchange -> tattooRestService.exchange()
     }.toString())
 }

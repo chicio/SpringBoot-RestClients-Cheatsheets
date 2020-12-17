@@ -1,5 +1,8 @@
 package it.chicio.tattoo
 
+import org.slf4j.LoggerFactory
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpMethod
 import org.springframework.http.ResponseEntity
 import org.springframework.web.client.RestClientResponseException
 import org.springframework.web.client.RestTemplate
@@ -9,6 +12,8 @@ class TattooRestService(
         private val tattooServiceConfiguration: TattooServiceConfiguration,
         private val restTemplate: RestTemplate
 ) {
+    private var logger = LoggerFactory.getLogger(TattooRestService::class.java)
+
     fun getForEntity(): ResponseEntity<Tattoo> = try {
         restTemplate.getForEntity(
                 UriComponentsBuilder
@@ -61,5 +66,37 @@ class TattooRestService(
         )
     } catch (e: RestClientResponseException) {
         null
+    }
+
+    fun put(): String = try {
+        val tattoo = Tattoo(123, "A new beautiful tattoo", "My latest new school tattoo on my left leg", Dimensions(100, 40), TattooStyles.NewSchool)
+        restTemplate.put(
+                UriComponentsBuilder
+                        .fromHttpUrl(tattooServiceConfiguration.url)
+                        .path("/tattoo/123")
+                        .build()
+                        .toUri(),
+                tattoo,
+        )
+        "Tattoo resource created $tattoo"
+    } catch (e: RestClientResponseException) {
+        val error = "Put client error ${e.rawStatusCode}"
+        logger.error(error)
+        error
+    }
+
+    fun exchange(): ResponseEntity<TattooPostResult> = try {
+        restTemplate.exchange(
+                UriComponentsBuilder
+                        .fromHttpUrl(tattooServiceConfiguration.url)
+                        .path("/tattoo/123")
+                        .build()
+                        .toUri(),
+                HttpMethod.POST,
+                HttpEntity<Tattoo>(Tattoo(123, "A new beautiful tattoo", "My latest new school tattoo on my left leg", Dimensions(100, 40), TattooStyles.NewSchool)),
+                TattooPostResult::class.java
+        )
+    } catch (e: RestClientResponseException) {
+        ResponseEntity.status(e.rawStatusCode).build()
     }
 }
