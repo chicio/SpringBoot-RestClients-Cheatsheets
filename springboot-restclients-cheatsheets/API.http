@@ -1,0 +1,31 @@
+### Command tattoo GetForEntity
+GET http://127.0.0.1:8080/clients/rest-template/command/GetForEntity
+Content-Type: application/json
+
+### Command tattoo GetForObject
+GET http://127.0.0.1:8080/clients/rest-template/command/GetForObject
+Content-Type: application/json
+
+### Command tattoo PostForEntity
+GET http://127.0.0.1:8080/clients/rest-template/command/PostForEntity
+Content-Type: application/json
+
+### Command tattoo PostForObject
+GET http://127.0.0.1:8080/clients/rest-template/command/PostForObject
+Content-Type: application/json
+
+### Command tattoo Put
+GET http://127.0.0.1:8080/clients/rest-template/command/Put
+Content-Type: application/json
+
+### Command tattoo Delete
+GET http://127.0.0.1:8080/clients/rest-template/command/Delete
+Content-Type: application/json
+
+### Command tattoo Exchange
+GET http://127.0.0.1:8080/clients/rest-template/command/Exchange
+Content-Type: application/json
+
+### Command tattoo GetSynchronous
+GET http://127.0.0.1:8080/clients/webclient/command/GetSynchronous
+Content-Type: application/json
