@@ -2,7 +2,9 @@
 
 package it.chicio.tattoo
 
-import it.chicio.tattoo.Command.*
+import it.chicio.tattoo.service.Command
+import it.chicio.tattoo.service.Command.*
+import it.chicio.tattoo.service.TattooRestService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

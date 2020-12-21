@@ -1,9 +1,6 @@
-package it.chicio.tattoo
+package it.chicio.tattoo.service
 
 import it.chicio.tattoo.configuration.TattooServiceConfiguration
-import it.chicio.tattoo.json.Dimensions
-import it.chicio.tattoo.json.Tattoo
-import it.chicio.tattoo.json.TattooStyles
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod

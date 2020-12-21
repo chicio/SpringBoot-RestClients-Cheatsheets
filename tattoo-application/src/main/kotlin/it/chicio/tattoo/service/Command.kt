@@ -1,4 +1,4 @@
-package it.chicio.tattoo
+package it.chicio.tattoo.service
 
 enum class Command {
     GetForEntity,

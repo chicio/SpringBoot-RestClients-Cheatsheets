@@ -1,4 +1,4 @@
-package it.chicio.tattoo.json
+package it.chicio.tattoo.service
 
 enum class TattooStyles {
     NewSchool,
