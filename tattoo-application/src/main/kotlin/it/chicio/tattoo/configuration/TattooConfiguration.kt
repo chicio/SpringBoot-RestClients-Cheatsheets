@@ -1,6 +1,7 @@
 package it.chicio.tattoo.configuration
 
-import it.chicio.tattoo.service.TattooRestService
+import it.chicio.tattoo.service.TattooRestTemplateService
+import it.chicio.tattoo.service.TattooWebClientService
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -15,8 +16,13 @@ class TattooConfiguration {
             .build()
 
     @Bean
-    fun tattooRestService(
+    fun tattooRestTemplateService(
             restTemplate: RestTemplate,
             tattooServiceConfiguration: TattooServiceConfiguration
-    ): TattooRestService = TattooRestService(tattooServiceConfiguration, restTemplate)
+    ): TattooRestTemplateService = TattooRestTemplateService(tattooServiceConfiguration, restTemplate)
+
+    @Bean
+    fun tattooWebClientService(
+            tattooServiceConfiguration: TattooServiceConfiguration
+    ): TattooWebClientService = TattooWebClientService(tattooServiceConfiguration)
 }

@@ -1,6 +1,6 @@
 package it.chicio.tattoo.service
 
-enum class Command {
+enum class RestTemplateCommand {
     GetForEntity,
     GetForObject,
     PostForEntity,

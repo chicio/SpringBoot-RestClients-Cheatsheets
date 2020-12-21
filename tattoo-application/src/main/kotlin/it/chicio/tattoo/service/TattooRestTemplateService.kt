@@ -9,11 +9,11 @@ import org.springframework.web.client.RestClientResponseException
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponentsBuilder
 
-class TattooRestService(
+class TattooRestTemplateService(
         private val tattooServiceConfiguration: TattooServiceConfiguration,
         private val restTemplate: RestTemplate
 ) {
-    private var logger = LoggerFactory.getLogger(TattooRestService::class.java)
+    private var logger = LoggerFactory.getLogger(TattooRestTemplateService::class.java)
 
     fun getForEntity(): ResponseEntity<Tattoo> = try {
         restTemplate.getForEntity(
