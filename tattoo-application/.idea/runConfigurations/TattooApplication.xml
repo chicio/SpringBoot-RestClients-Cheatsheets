@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TattooApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="tattoo-application.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="it.chicio.tattoo.TattooApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

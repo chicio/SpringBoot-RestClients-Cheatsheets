@@ -2,6 +2,7 @@
 
 package it.chicio.tattoo
 
+import it.chicio.tattoo.Command.*
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -15,11 +16,12 @@ class TattooApi(
 ) {
     @GetMapping("/command/{command}")
     fun command(@PathVariable command: Command): ResponseEntity<String> = ResponseEntity.ok(when (command) {
-        Command.GetForEntity -> tattooRestService.getForEntity()
-        Command.GetForObject -> tattooRestService.getForObject()
-        Command.PostForEntity -> tattooRestService.postForEntity()
-        Command.PostForObject -> tattooRestService.postForObject()
-        Command.Put -> tattooRestService.put()
-        Command.Exchange -> tattooRestService.exchange()
+        GetForEntity -> tattooRestService.getForEntity()
+        GetForObject -> tattooRestService.getForObject()
+        PostForEntity -> tattooRestService.postForEntity()
+        PostForObject -> tattooRestService.postForObject()
+        Put -> tattooRestService.put()
+        Delete -> tattooRestService.delete()
+        Exchange -> tattooRestService.exchange()
     }.toString())
 }

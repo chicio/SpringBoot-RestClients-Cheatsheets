@@ -1,4 +1,4 @@
-package it.chicio.tattoo
+package it.chicio.tattoo.configuration
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration

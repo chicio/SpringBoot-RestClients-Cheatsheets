@@ -5,6 +5,7 @@ enum class Command {
     GetForObject,
     PostForEntity,
     PostForObject,
+    Put,
+    Delete,
     Exchange,
-    Put
 }

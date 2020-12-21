@@ -1,5 +1,6 @@
-package it.chicio.tattoo
+package it.chicio.tattoo.configuration
 
+import it.chicio.tattoo.TattooRestService
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

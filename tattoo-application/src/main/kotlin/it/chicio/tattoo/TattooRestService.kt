@@ -1,5 +1,9 @@
 package it.chicio.tattoo
 
+import it.chicio.tattoo.configuration.TattooServiceConfiguration
+import it.chicio.tattoo.json.Dimensions
+import it.chicio.tattoo.json.Tattoo
+import it.chicio.tattoo.json.TattooStyles
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
@@ -79,6 +83,21 @@ class TattooRestService(
                 tattoo,
         )
         "Tattoo resource created $tattoo"
+    } catch (e: RestClientResponseException) {
+        val error = "Put client error ${e.rawStatusCode}"
+        logger.error(error)
+        error
+    }
+
+    fun delete(): String = try {
+        restTemplate.delete(
+                UriComponentsBuilder
+                        .fromHttpUrl(tattooServiceConfiguration.url)
+                        .path("/tattoo/123")
+                        .build()
+                        .toUri()
+        )
+        "Tattoo resource deleted"
     } catch (e: RestClientResponseException) {
         val error = "Put client error ${e.rawStatusCode}"
         logger.error(error)

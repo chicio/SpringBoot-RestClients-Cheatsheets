@@ -1,4 +1,4 @@
-package it.chicio.tattoo
+package it.chicio.tattoo.json
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
@@ -9,16 +9,4 @@ data class Tattoo(
         var description: String,
         var dimensions: Dimensions,
         var style: TattooStyles
-)
-
-enum class TattooStyles {
-    NewSchool,
-    OldSchool,
-    Tribal,
-    Japanese
-}
-
-data class Dimensions (
-        val height: Long,
-        val width: Long
 )

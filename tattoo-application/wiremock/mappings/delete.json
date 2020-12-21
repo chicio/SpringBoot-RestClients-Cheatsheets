@@ -1,0 +1,16 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/tattoo/123"
+      },
+      "response": {
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 204
+      }
+    }
+  ]
+}
