@@ -29,3 +29,7 @@ Content-Type: application/json
 ### Command tattoo GetSynchronous
 GET http://127.0.0.1:8080/clients/webclient/command/GetSynchronous
 Content-Type: application/json
+
+### Command tattoo GetAsynchronous
+GET http://127.0.0.1:8080/clients/webclient/command/GetAsynchronous
+Content-Type: application/json
