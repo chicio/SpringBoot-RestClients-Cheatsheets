@@ -36,4 +36,18 @@ class WebClientService(
             .onStatus(HttpStatus::is4xxClientError) { Mono.error(RuntimeException("4XX Error ${it.statusCode()}")) }
             .onStatus(HttpStatus::is4xxClientError) { Mono.error(RuntimeException("4XX Error ${it.statusCode()}")) }
             .bodyToMono(Tattoo::class.java)
+
+    fun exchange(): Mono<Tattoo> = webClient
+            .get()
+            .uri(UriComponentsBuilder
+                    .fromHttpUrl(tattooServiceConfiguration.url)
+                    .path("/tattoo/123")
+                    .build()
+                    .toUri())
+            .exchangeToMono { response ->
+                when(response.statusCode()) {
+                    HttpStatus.OK -> response.bodyToMono(Tattoo::class.java)
+                    else -> Mono.error(RuntimeException("4XX Error ${response.statusCode()}"))
+                }
+            }
 }

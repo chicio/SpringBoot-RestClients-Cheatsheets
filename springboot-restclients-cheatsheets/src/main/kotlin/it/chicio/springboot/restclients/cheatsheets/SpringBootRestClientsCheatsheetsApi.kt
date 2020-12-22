@@ -33,5 +33,6 @@ class SpringBootRestClientsCheatsheetsApi(
     fun command(@PathVariable webClientCommand: WebClientCommand): ResponseEntity<String> = ResponseEntity.ok(when (webClientCommand) {
         WebClientCommand.GetSynchronous -> webClientService.getSynchronous()
         WebClientCommand.GetAsynchronous -> webClientService.getAsynchronous().block()
+        WebClientCommand.Exchange -> webClientService.exchange().block()
     }.toString())
 }

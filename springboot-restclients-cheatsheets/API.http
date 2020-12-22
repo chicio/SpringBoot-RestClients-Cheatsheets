@@ -1,3 +1,5 @@
+### RestTemplate
+
 ### Command tattoo GetForEntity
 GET http://127.0.0.1:8080/clients/rest-template/command/GetForEntity
 Content-Type: application/json
@@ -26,10 +28,16 @@ Content-Type: application/json
 GET http://127.0.0.1:8080/clients/rest-template/command/Exchange
 Content-Type: application/json
 
+### WebClient
+
 ### Command tattoo GetSynchronous
 GET http://127.0.0.1:8080/clients/webclient/command/GetSynchronous
 Content-Type: application/json
 
 ### Command tattoo GetAsynchronous
 GET http://127.0.0.1:8080/clients/webclient/command/GetAsynchronous
+Content-Type: application/json
+
+### Command tattoo Exchange
+GET http://127.0.0.1:8080/clients/webclient/command/Exchange
 Content-Type: application/json
