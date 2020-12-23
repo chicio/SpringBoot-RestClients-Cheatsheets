@@ -68,19 +68,7 @@ class WebClientService(
             .onStatus(HttpStatus::is5xxServerError) { Mono.error(RuntimeException("5XX Error ${it.statusCode()}")) }
             .bodyToMono(TattooPostResult::class.java)
 
-    fun exchange(): Mono<Tattoo> = webClient
-            .get()
-            .uri(UriComponentsBuilder
-                    .fromHttpUrl(tattooServiceConfiguration.url)
-                    .path("/tattoo/123")
-                    .build()
-                    .toUri())
-            .exchangeToMono { response ->
-                when(response.statusCode()) {
-                    HttpStatus.OK -> response.bodyToMono(Tattoo::class.java)
-                    else -> Mono.error(RuntimeException("4XX Error ${response.statusCode()}"))
-                }
-            }
+
 
     fun putSynchronous(): String {
         val tattoo = Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool)
@@ -98,5 +86,21 @@ class WebClientService(
                 .bodyToMono(Void::class.java)
                 .block()
         return "Tattoo resource created $tattoo"
+    }
+
+    fun deleteSynchronous(): String {
+        webClient
+                .put()
+                .uri(UriComponentsBuilder
+                        .fromHttpUrl(tattooServiceConfiguration.url)
+                        .path("/tattoo/123")
+                        .build()
+                        .toUri())
+                .retrieve()
+                .onStatus(HttpStatus::is4xxClientError) { Mono.error(RuntimeException("4XX Error ${it.statusCode()}")) }
+                .onStatus(HttpStatus::is5xxServerError) { Mono.error(RuntimeException("5XX Error ${it.statusCode()}")) }
+                .bodyToMono(Void::class.java)
+                .block()
+        return "Tattoo resource deleted"
     }
 }

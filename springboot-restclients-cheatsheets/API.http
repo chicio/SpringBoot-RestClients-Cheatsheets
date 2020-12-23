@@ -50,6 +50,10 @@ Content-Type: application/json
 GET http://127.0.0.1:8080/clients/webclient/command/PutSynchronous
 Content-Type: application/json
 
+### Command tattoo DeleteSynchronous
+GET http://127.0.0.1:8080/clients/webclient/command/PutSynchronous
+Content-Type: application/json
+
 ### Command tattoo Exchange
 GET http://127.0.0.1:8080/clients/webclient/command/Exchange
 Content-Type: application/json

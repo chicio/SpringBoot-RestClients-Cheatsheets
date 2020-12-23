@@ -36,6 +36,7 @@ class SpringBootRestClientsCheatsheetsApi(
         WebClientCommand.PostSynchronous -> webClientService.postSynchronous()
         WebClientCommand.PostAsynchronous -> webClientService.postAsynchronous().block()
         WebClientCommand.PutSynchronous -> webClientService.putSynchronous()
+        WebClientCommand.DeleteSynchronous -> webClientService.deleteSynchronous()
         WebClientCommand.Exchange -> webClientService.exchange().block()
     }.toString())
 }

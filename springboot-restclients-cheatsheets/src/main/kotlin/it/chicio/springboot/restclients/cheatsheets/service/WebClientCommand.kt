@@ -6,5 +6,6 @@ enum class WebClientCommand {
     PostSynchronous,
     PostAsynchronous,
     PutSynchronous,
-    Exchange
+    DeleteSynchronous,
+    Exchange,
 }
