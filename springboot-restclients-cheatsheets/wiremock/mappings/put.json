@@ -9,7 +9,6 @@
             "equalToJson": {
               "id": 123,
               "title": "A new beautiful tattoo",
-              "description": "My latest new school tattoo on my left leg",
               "dimensions": {
                 "height": 100,
                 "width": 40

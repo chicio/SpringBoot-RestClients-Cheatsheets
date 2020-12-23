@@ -52,7 +52,7 @@ class RestTemplateService(
                         .path("/tattoo/123")
                         .build()
                         .toUri(),
-                Tattoo(123, "A new beautiful tattoo", "My latest new school tattoo on my left leg", Dimensions(100, 40), TattooStyles.NewSchool),
+                Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool),
                 TattooPostResult::class.java
         )
     } catch (e: RestClientResponseException) {
@@ -66,7 +66,7 @@ class RestTemplateService(
                         .path("/tattoo/123")
                         .build()
                         .toUri(),
-                Tattoo(123, "A new beautiful tattoo", "My latest new school tattoo on my left leg", Dimensions(100, 40), TattooStyles.NewSchool),
+                Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool),
                 TattooPostResult::class.java
         )
     } catch (e: RestClientResponseException) {
@@ -74,7 +74,7 @@ class RestTemplateService(
     }
 
     fun put(): String = try {
-        val tattoo = Tattoo(123, "A new beautiful tattoo", "My latest new school tattoo on my left leg", Dimensions(100, 40), TattooStyles.NewSchool)
+        val tattoo = Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool)
         restTemplate.put(
                 UriComponentsBuilder
                         .fromHttpUrl(tattooServiceConfiguration.url)
@@ -113,7 +113,7 @@ class RestTemplateService(
                         .build()
                         .toUri(),
                 HttpMethod.POST,
-                HttpEntity<Tattoo>(Tattoo(123, "A new beautiful tattoo", "My latest new school tattoo on my left leg", Dimensions(100, 40), TattooStyles.NewSchool)),
+                HttpEntity<Tattoo>(Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool)),
                 TattooPostResult::class.java
         )
     } catch (e: RestClientResponseException) {
