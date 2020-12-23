@@ -7,7 +7,6 @@ import it.chicio.springboot.restclients.cheatsheets.json.TattooPostResult
 import it.chicio.springboot.restclients.cheatsheets.json.TattooStyles
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.reactive.function.BodyInserter
 import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.util.UriComponentsBuilder
@@ -56,6 +55,19 @@ class WebClientService(
             .toEntity(TattooPostResult::class.java)
             .block()
 
+    fun postAsynchronous(): Mono<TattooPostResult> = webClient
+            .post()
+            .uri(UriComponentsBuilder
+                    .fromHttpUrl(tattooServiceConfiguration.url)
+                    .path("/tattoo/123")
+                    .build()
+                    .toUri())
+            .body(BodyInserters.fromValue(Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool)))
+            .retrieve()
+            .onStatus(HttpStatus::is4xxClientError) { Mono.error(RuntimeException("4XX Error ${it.statusCode()}")) }
+            .onStatus(HttpStatus::is5xxServerError) { Mono.error(RuntimeException("5XX Error ${it.statusCode()}")) }
+            .bodyToMono(TattooPostResult::class.java)
+
     fun exchange(): Mono<Tattoo> = webClient
             .get()
             .uri(UriComponentsBuilder
@@ -69,4 +81,22 @@ class WebClientService(
                     else -> Mono.error(RuntimeException("4XX Error ${response.statusCode()}"))
                 }
             }
+
+    fun putSynchronous(): String {
+        val tattoo = Tattoo(123, "A new beautiful tattoo", Dimensions(100, 40), TattooStyles.NewSchool)
+        webClient
+                .put()
+                .uri(UriComponentsBuilder
+                        .fromHttpUrl(tattooServiceConfiguration.url)
+                        .path("/tattoo/123")
+                        .build()
+                        .toUri())
+                .body(BodyInserters.fromValue(tattoo))
+                .retrieve()
+                .onStatus(HttpStatus::is4xxClientError) { Mono.error(RuntimeException("4XX Error ${it.statusCode()}")) }
+                .onStatus(HttpStatus::is5xxServerError) { Mono.error(RuntimeException("5XX Error ${it.statusCode()}")) }
+                .bodyToMono(Void::class.java)
+                .block()
+        return "Tattoo resource created $tattoo"
+    }
 }

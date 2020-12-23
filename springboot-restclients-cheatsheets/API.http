@@ -42,6 +42,14 @@ Content-Type: application/json
 GET http://127.0.0.1:8080/clients/webclient/command/PostSynchronous
 Content-Type: application/json
 
+### Command tattoo PostAsynchronous
+GET http://127.0.0.1:8080/clients/webclient/command/PostAsynchronous
+Content-Type: application/json
+
+### Command tattoo PutSynchronous
+GET http://127.0.0.1:8080/clients/webclient/command/PutSynchronous
+Content-Type: application/json
+
 ### Command tattoo Exchange
 GET http://127.0.0.1:8080/clients/webclient/command/Exchange
 Content-Type: application/json

@@ -4,5 +4,7 @@ enum class WebClientCommand {
     GetSynchronous,
     GetAsynchronous,
     PostSynchronous,
+    PostAsynchronous,
+    PutSynchronous,
     Exchange
 }
