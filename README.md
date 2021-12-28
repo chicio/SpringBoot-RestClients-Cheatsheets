@@ -1,6 +1,6 @@
 # SpringBoot-RestClients-Cheatsheets
 
-An example Spring Boot app that I created to show how to use `RestTemplate` and `WebClient`. This is a repository for my blog post ["Spring Boot + Kotlin Rest client cheatsheet: RestTemplate and Webclient"](https://www.fabrizioduroni.it/2020/12/23/rest-template-webclient-spring-boot.html).
+An example Spring Boot app that I created to show how to use `RestTemplate` and `WebClient`. This is a repository for my blog post ["Spring Boot + Kotlin Rest client cheatsheet: RestTemplate and Webclient"](https://www.fabrizioduroni.it/2020/12/23/rest-template-webclient-spring-boot/).
 
 ### Description
 
